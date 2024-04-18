@@ -17,38 +17,81 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
+    let playerScore = 0;
+    let computerScore = 0; 
+    let roundMessage = "";
+
+
     if(playerSelection === computerSelection) {
-        return "DRAW!";
+        roundMessage = "DRAW!";
     }
 
     if(playerSelection === "ROCK") {
         if(computerSelection === "PAPER") {
-            return "You Lose! Paper beats Rock";
+            roundMessage = "You Lose! Paper beats Rock";
+            computerScore += 1;
         }
         else if(computerSelection === "SCISSORS"){
-            return "You Win! Rock beats Scissors";
+            roundMessage = "You Win! Rock beats Scissors";
+            playerScore += 1;
         }
     }
     else if(playerSelection === "PAPER") {
         if(computerSelection === "ROCK") {
-            return "You Win! Paper beats Rock";
+            roundMessage = "You Win! Paper beats Rock";
+            playerScore += 1;
         }
         else if(computerSelection === "SCISSORS") {
-            return "You Lose! Scissors beats Paper";
+            roundMessage = "You Lose! Scissors beats Paper";
+            computerScore += 1;
         }
     }
     else if(playerSelection === "SCISSORS") {
         if(computerSelection === "PAPER") {
-            return "You Win! Scissors beats Paper";
+            roundMessage = "You Win! Scissors beats Paper";
+            playerScore += 1;
         }
         else if(computerSelection === "ROCK") {
-            return "You Lose! Rock beats Scissors";
+            roundMessage = "You Lose! Rock beats Scissors";
+            computerScore += 1;
         }
     }
+
+    updateGameMessage(playerScore, computerScore, roundMessage);
 }
 
-const playerSelection = "ROCK";
-const computerSelection = getComputerChoice();
+function updateGameMessage(playerScore, computerScore, roundMessage) {
+    alert(`Player Score: ${playerScore} Computer Score: ${computerScore}\n${roundMessage}`);
+} 
 
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+
+/*
+
+PLAY GAME LOGIC
+
+Call playGame()
+Get user selection
+Call playRound()
+Display roundMessage and score
+Call playRound() until gameRound is less than or equal to 5
+
+
+*/
+function playGame() {
+    
+    let gameRound = 0;
+
+    while (gameRound <= 5){
+    let playerSelection = prompt("Please enter your choice: ");
+    let computerSelection = getComputerChoice();
+
+    playerSelection = playerSelection.toUpperCase();
+
+    playRound(playerSelection, computerSelection);
+
+    gameRound++;
+    }
+    
+}
+
+playGame();
