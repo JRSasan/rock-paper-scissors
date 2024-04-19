@@ -5,6 +5,11 @@
 // Play the game until a player gets 3 points
 
 
+let playerScore = 0;
+let computerScore = 0; 
+let gameRound = 0;
+let roundMessage = "";
+
 function getComputerChoice() {
     const choices = ["ROCK", "PAPER", "SCISSORS"]
 
@@ -15,11 +20,10 @@ function getComputerChoice() {
     return choice;
 }
 
+
+
 function playRound(playerSelection, computerSelection) {
 
-    let playerScore = 0;
-    let computerScore = 0; 
-    let roundMessage = "";
 
 
     if(playerSelection === computerSelection) {
@@ -57,12 +61,13 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-    updateGameMessage(playerScore, computerScore, roundMessage);
+    updateGameMessage(playerScore, computerScore, gameRound, roundMessage);
 }
 
-function updateGameMessage(playerScore, computerScore, roundMessage) {
-    alert(`Player Score: ${playerScore} Computer Score: ${computerScore}\n${roundMessage}`);
+function updateGameMessage(playerScore, computerScore, gameRound, roundMessage) {
+    alert(`Round ${gameRound + 1}\n\nPlayer Score: ${playerScore} Computer Score: ${computerScore}\n\n${roundMessage}`);
 } 
+
 
 
 /*
@@ -79,9 +84,7 @@ Call playRound() until gameRound is less than or equal to 5
 */
 function playGame() {
     
-    let gameRound = 0;
-
-    while (gameRound <= 5){
+    while (gameRound < 5){
     let playerSelection = prompt("Please enter your choice: ");
     let computerSelection = getComputerChoice();
 
@@ -91,7 +94,19 @@ function playGame() {
 
     gameRound++;
     }
+
+    alert(declareWinner(playerScore, computerScore));
     
+}
+
+function declareWinner(playerScore, computerScore) {
+    if(playerScore === computerScore) {
+        return "DRAW"
+    } else if (playerScore > computerScore) {
+        return "PLAYER WINS"
+    } else if (playerScore < computerScore) {
+        return "COMPUTER WINS"
+    }
 }
 
 playGame();
