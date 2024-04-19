@@ -9,6 +9,31 @@ let playerScore = 0;
 let computerScore = 0; 
 let gameRound = 0;
 let roundMessage = "";
+let isActive = true;
+
+playGame();
+
+function playGame() {
+
+    alert("ROCK PAPER SCISSORS BEST OF 5 VS COMPUTER")
+    
+    while (isActive){
+        let playerSelection = getPlayerChoice();
+        let computerSelection = getComputerChoice();
+
+        playRound(playerSelection, computerSelection);
+
+        gameRound++;
+
+        if (playerScore === 3 || computerScore === 3) {
+        isActive = false;
+        }
+
+    }
+
+    alert(declareWinner(playerScore, computerScore));
+    
+}
 
 function getComputerChoice() {
     const choices = ["ROCK", "PAPER", "SCISSORS"]
@@ -20,11 +45,14 @@ function getComputerChoice() {
     return choice;
 }
 
+function getPlayerChoice() {
 
+    const choice = prompt("Please enter your choice: ");
+
+    return choice.toUpperCase();
+}
 
 function playRound(playerSelection, computerSelection) {
-
-
 
     if(playerSelection === computerSelection) {
         roundMessage = "DRAW!";
@@ -68,37 +96,6 @@ function updateGameMessage(playerScore, computerScore, gameRound, roundMessage) 
     alert(`Round ${gameRound + 1}\n\nPlayer Score: ${playerScore} Computer Score: ${computerScore}\n\n${roundMessage}`);
 } 
 
-
-
-/*
-
-PLAY GAME LOGIC
-
-Call playGame()
-Get user selection
-Call playRound()
-Display roundMessage and score
-Call playRound() until gameRound is less than or equal to 5
-
-
-*/
-function playGame() {
-    
-    while (gameRound < 5){
-    let playerSelection = prompt("Please enter your choice: ");
-    let computerSelection = getComputerChoice();
-
-    playerSelection = playerSelection.toUpperCase();
-
-    playRound(playerSelection, computerSelection);
-
-    gameRound++;
-    }
-
-    alert(declareWinner(playerScore, computerScore));
-    
-}
-
 function declareWinner(playerScore, computerScore) {
     if(playerScore === computerScore) {
         return "DRAW"
@@ -109,4 +106,4 @@ function declareWinner(playerScore, computerScore) {
     }
 }
 
-playGame();
+
