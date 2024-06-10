@@ -8,6 +8,7 @@
 let playerScore = 0;
 let computerScore = 0; 
 let gameRound = 0;
+let roundResult = "";
 let roundMessage = "";
 let isActive = true;
 
@@ -16,6 +17,8 @@ const playerChoice = document.querySelector(".player-choice");
 const computerChoice = document.querySelector(".computer-choice");
 const playerScoreDisplay = document.querySelector(".player-score");
 const computerScoreDisplay = document.querySelector(".computer-score");
+const roundResultDisplay = document.querySelector(".round-result-display");
+const roundMessageDisplay = document.querySelector(".round-message-display");
 const choicesButtons = document.querySelectorAll(".choice-button");
 
 choicesButtons.forEach((buttons) => {
@@ -61,47 +64,57 @@ function getPlayerChoice(playerChoice) {
 function playRound(playerSelection, computerSelection) {
 
     if(playerSelection === computerSelection) {
-        roundMessage = "DRAW!";
+        roundResult = "DRAW!";
+        roundMessage = " ";
     }
 
     if(playerSelection === "ROCK") {
         if(computerSelection === "PAPER") {
-            roundMessage = "You Lose! Paper beats Rock";
+            roundResult = "YOU LOSE!"
+            roundMessage = "PAPER BEATS ROCK";
             computerScore += 1;
         }
         else if(computerSelection === "SCISSORS"){
-            roundMessage = "You Win! Rock beats Scissors";
+            roundResult = "YOU WIN!"
+            roundMessage = "ROCK BEATS SCISSORS";
             playerScore += 1;
         }
     }
     else if(playerSelection === "PAPER") {
         if(computerSelection === "ROCK") {
-            roundMessage = "You Win! Paper beats Rock";
+            roundResult = "YOU WIN!"
+            roundMessage = "PAPER BEATS ROCKS";
             playerScore += 1;
         }
         else if(computerSelection === "SCISSORS") {
-            roundMessage = "You Lose! Scissors beats Paper";
+            roundResult = "YOU LOSE!"
+            roundMessage = "SCISSORS BEATS PAPER";
             computerScore += 1;
         }
     }
     else if(playerSelection === "SCISSORS") {
         if(computerSelection === "PAPER") {
-            roundMessage = "You Win! Scissors beats Paper";
+            roundResult = "YOU WIN!"
+            roundMessage = "SCISSORS BEATS PAPER";
             playerScore += 1;
         }
         else if(computerSelection === "ROCK") {
-            roundMessage = "You Lose! Rock beats Scissors";
+            roundResult = "YOU LOSE!"
+            roundMessage = "ROCK BEATS SCISSORS";
             computerScore += 1;
         }
     }
 
-    updateGameMessage(playerScore, computerScore, gameRound, roundMessage);
+    updateGameMessage(playerScore, computerScore, roundResult, roundMessage);
 }
 
-function updateGameMessage(playerScore, computerScore, gameRound, roundMessage) {
+function updateGameMessage(playerScore, computerScore, roundResult, roundMessage) {
     
     playerScoreDisplay.innerHTML = `PLAYER: ${playerScore}`;
     computerScoreDisplay.innerHTML = `COMPUTER: ${computerScore}`;
+
+    roundResultDisplay.textContent = roundResult;
+    roundMessageDisplay.textContent = roundMessage;
     
 } 
 
