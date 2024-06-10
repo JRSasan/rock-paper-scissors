@@ -10,7 +10,6 @@ let computerScore = 0;
 let gameRound = 0;
 let roundResult = "";
 let roundMessage = "";
-let isActive = true;
 
 
 const playerChoice = document.querySelector(".player-choice");
