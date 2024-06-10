@@ -35,7 +35,9 @@ function playGame(e) {
 
     playRound(playerSelection, computerSelection);
 
-    gameRound++;
+    if (playerScore === 5 || computerScore === 5) {
+        declareWinner(playerScore, computerScore);
+    }
     
 }
 
@@ -49,17 +51,6 @@ function getComputerChoice() {
 
     return choice;
 }
-
-/*
-function getPlayerChoice(playerChoice) {
-
-    const choice = playerChoice.value;
-
-    console.log(choice);
-
-    return choice;
-}
-*/
 
 function playRound(playerSelection, computerSelection) {
 
@@ -118,18 +109,21 @@ function updateGameMessage(playerScore, computerScore, roundResult, roundMessage
     
 } 
 
-/*
 
 function declareWinner(playerScore, computerScore) {
     if(playerScore === computerScore) {
-        return "DRAW"
+        roundResult = "DRAW";
     } else if (playerScore > computerScore) {
-        return "PLAYER WINS"
+        roundResult = "PLAYER WINS";
     } else if (playerScore < computerScore) {
-        return "COMPUTER WINS"
+        roundResult = "COMPUTER WINS";
     }
+
+    roundResultDisplay.textContent = roundResult;
+    roundMessageDisplay.textContent = " ";
+
+    choicesButtons.forEach((button) => {button.disabled = true;});
 }
 
-*/
 
 
