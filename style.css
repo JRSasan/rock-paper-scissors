@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    text-align: center;
+}
+
+
+.game-info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+

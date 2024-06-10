@@ -13,7 +13,7 @@ let isActive = true;
 
 playGame();
 
-function playGame() {
+/* function playGame() {
 
     alert("ROCK PAPER SCISSORS BEST OF 5 VS COMPUTER")
     
@@ -34,6 +34,8 @@ function playGame() {
     alert(declareWinner(playerScore, computerScore));
     
 }
+
+*/
 
 function getComputerChoice() {
     const choices = ["ROCK", "PAPER", "SCISSORS"]
