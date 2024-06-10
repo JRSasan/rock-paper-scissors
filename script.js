@@ -11,31 +11,31 @@ let gameRound = 0;
 let roundMessage = "";
 let isActive = true;
 
-playGame();
 
-/* function playGame() {
+const playerChoice = document.querySelector(".player-choice");
+const computerChoice = document.querySelector(".computer-choice");
+const playerScoreDisplay = document.querySelector(".player-score");
+const computerScoreDisplay = document.querySelector(".computer-score");
+const choicesButtons = document.querySelectorAll(".choice-button");
 
-    alert("ROCK PAPER SCISSORS BEST OF 5 VS COMPUTER")
+choicesButtons.forEach((buttons) => {
+    buttons.addEventListener("click", playGame);
+})
+
+
+function playGame(e) {
     
-    while (isActive){
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
+    let playerSelection = e.target.value;
+    playerChoice.textContent = playerSelection;
+    let computerSelection = getComputerChoice();
+    computerChoice.textContent = computerSelection;
 
-        playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
 
-        gameRound++;
-
-        if (playerScore === 3 || computerScore === 3) {
-        isActive = false;
-        }
-
-    }
-
-    alert(declareWinner(playerScore, computerScore));
+    gameRound++;
     
 }
 
-*/
 
 function getComputerChoice() {
     const choices = ["ROCK", "PAPER", "SCISSORS"]
@@ -47,12 +47,16 @@ function getComputerChoice() {
     return choice;
 }
 
-function getPlayerChoice() {
+/*
+function getPlayerChoice(playerChoice) {
 
-    const choice = prompt("Please enter your choice: ");
+    const choice = playerChoice.value;
 
-    return choice.toUpperCase();
+    console.log(choice);
+
+    return choice;
 }
+*/
 
 function playRound(playerSelection, computerSelection) {
 
@@ -95,8 +99,13 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateGameMessage(playerScore, computerScore, gameRound, roundMessage) {
-    alert(`Round ${gameRound + 1}\n\nPlayer Score: ${playerScore} Computer Score: ${computerScore}\n\n${roundMessage}`);
+    
+    playerScoreDisplay.innerHTML = `PLAYER: ${playerScore}`;
+    computerScoreDisplay.innerHTML = `COMPUTER: ${computerScore}`;
+    
 } 
+
+/*
 
 function declareWinner(playerScore, computerScore) {
     if(playerScore === computerScore) {
@@ -107,5 +116,7 @@ function declareWinner(playerScore, computerScore) {
         return "COMPUTER WINS"
     }
 }
+
+*/
 
 
