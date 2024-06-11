@@ -42,12 +42,6 @@ body {
     color: #1A2130;
 }
 
-.player-choice,
-.computer-choice {
-    font-size: 50px;
-}
-
-
 .game-info {
     display: flex;
     justify-content: center;
@@ -55,5 +49,25 @@ body {
     gap: 30px;
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.player-choice,
+.computer-choice {
+    font-size: 50px;
+}
+
+.choices-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.choice-button {
+    font-size: 50px;
+    padding: 20px 30px;
+    color: #FDFFE2;
+    background-color: #1A2130;
+    border: none;
+    border-radius: 10px;
 }
 
