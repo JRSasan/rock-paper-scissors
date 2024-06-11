@@ -48,7 +48,7 @@ function playRound(playerSelection, computerSelection) {
 
     if(playerSelection === computerSelection) {
         roundResult = "DRAW!";
-        roundMessage = " ";
+        roundMessage = `${playerSelection} TIES WITH ${computerSelection}`;
     }
 
     if(playerSelection === "ROCK") {
