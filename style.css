@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Mickey";
+    src: url(assets/font/MickeyMouse.otf);
+}
+
 *,
 *::before,
 *::after {
@@ -10,6 +15,13 @@
 
 body {
     text-align: center;
+}
+
+.game-name {
+    font-family: "Mickey";
+    font-size: 30px;
+    letter-spacing: 8px;
+    padding: 10px;
 }
 
 
