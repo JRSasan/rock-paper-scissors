@@ -1,10 +1,3 @@
-// Get computer choice
-// Get user choice
-// Check for who is the winner
-// Increment the points of the winner
-// Play the game until a player gets 3 points
-
-
 let playerScore = 0;
 let computerScore = 0; 
 let gameRound = 0;
@@ -100,8 +93,8 @@ function playRound(playerSelection, computerSelection) {
 
 function updateGameMessage(playerScore, computerScore, roundResult, roundMessage) {
     
-    playerScoreDisplay.innerHTML = `PLAYER: ${playerScore}`;
-    computerScoreDisplay.innerHTML = `COMPUTER: ${computerScore}`;
+    playerScoreDisplay.textContent = `PLAYER: ${playerScore}`;
+    computerScoreDisplay.textContent = `COMPUTER: ${computerScore}`;
 
     roundResultDisplay.textContent = roundResult;
     roundMessageDisplay.textContent = roundMessage;
