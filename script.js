@@ -21,10 +21,10 @@ choicesButtons.forEach((buttons) => {
 function playGame(e) {
     
     let playerSelection = e.target.value;
-    playerChoice.textContent = playerSelection;
     let computerSelection = getComputerChoice();
-    computerChoice.textContent = computerSelection;
 
+
+    updateChoiceDisplay(playerSelection, computerSelection);
     playRound(playerSelection, computerSelection);
 
     if (playerScore === 5 || computerScore === 5) {
@@ -91,6 +91,13 @@ function playRound(playerSelection, computerSelection) {
     updateGameMessage(playerScore, computerScore, roundResult, roundMessage);
 }
 
+function updateChoiceDisplay(playerSelection, computerSelection) {
+    
+    playerChoice.textContent = playerSelection;
+    computerChoice.textContent = computerSelection;
+
+}
+
 function updateGameMessage(playerScore, computerScore, roundResult, roundMessage) {
     
     playerScoreDisplay.textContent = `PLAYER: ${playerScore}`;
@@ -106,9 +113,9 @@ function declareWinner(playerScore, computerScore) {
     if(playerScore === computerScore) {
         roundResult = "DRAW";
     } else if (playerScore > computerScore) {
-        roundResult = "PLAYER WINS";
+        roundResult = "PLAYER WINS!";
     } else if (playerScore < computerScore) {
-        roundResult = "COMPUTER WINS";
+        roundResult = "COMPUTER WINS!";
     }
 
     roundResultDisplay.textContent = roundResult;
