@@ -76,4 +76,12 @@ body {
     border-radius: 10px;
 }
 
+.choice-button:hover {
+    cursor: pointer;
+    background-color: #83B4FF;
+}
+
+.noHover {
+    pointer-events: none;
+}
 

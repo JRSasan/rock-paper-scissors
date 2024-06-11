@@ -146,7 +146,10 @@ function declareWinner(playerScore, computerScore) {
     roundResultDisplay.textContent = roundResult;
     roundMessageDisplay.textContent = " ";
 
-    choicesButtons.forEach((button) => {button.disabled = true;});
+    choicesButtons.forEach((button) => {
+        button.disabled = true;
+        button.classList.add("noHover");
+    });
 }
 
 
