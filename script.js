@@ -92,6 +92,31 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateChoiceDisplay(playerSelection, computerSelection) {
+
+    switch(playerSelection) {
+        case "ROCK":
+            playerSelection = "✊";
+            break;
+        case "PAPER":
+            playerSelection = "✋";
+            break;
+        case "SCISSORS":
+            playerSelection = "✌";
+            break;
+    }
+
+    switch(computerSelection) {
+        case "ROCK":
+            computerSelection = "✊";
+            break;
+        case "PAPER":
+            computerSelection = "✋";
+            break;
+        case "SCISSORS":
+            computerSelection = "✌";
+            break;
+    }
+    
     
     playerChoice.textContent = playerSelection;
     computerChoice.textContent = computerSelection;

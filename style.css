@@ -42,6 +42,11 @@ body {
     color: #1A2130;
 }
 
+.player-choice,
+.computer-choice {
+    font-size: 50px;
+}
+
 
 .game-info {
     display: flex;
