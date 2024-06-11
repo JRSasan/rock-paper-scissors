@@ -51,9 +51,14 @@ body {
     margin-bottom: 50px;
 }
 
+.game-info > h2 {
+    align-self: center;
+}
+
 .player-choice,
 .computer-choice {
-    font-size: 50px;
+    font-size: 60px;
+    color: #FDFFE2;
 }
 
 .choices-buttons {
@@ -70,4 +75,5 @@ body {
     border: none;
     border-radius: 10px;
 }
+
 
