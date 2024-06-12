@@ -14,10 +14,13 @@ const roundMessageDisplay = document.querySelector(".round-message-display");
 const choicesButtons = document.querySelectorAll(".choice-button");
 const endGameModal = document.querySelector(".end-game-modal");
 const gameResult = document.querySelector(".game-result");
+const resetButton = document.querySelector(".reset-button");
 
 choicesButtons.forEach((buttons) => {
     buttons.addEventListener("click", playGame);
 })
+
+resetButton.addEventListener("click", resetGame);
 
 
 function playGame(e) {
@@ -145,14 +148,28 @@ function declareWinner(playerScore, computerScore) {
 
     gameResult.textContent = roundResult;
     endGameModal.style.display = "flex";
-    
 
     choicesButtons.forEach((button) => {
         button.disabled = true;
         button.classList.add("noHover");
     });
+}
 
-    
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    roundResultDisplay.textContent = "PICK YOUR CHOICE TO START THE ROUND";
+    roundMessageDisplay.textContent = "FIRST TO 5 POINTS WINS THE GAME";
+    playerScoreDisplay.textContent = `PLAYER: ${playerScore}`;
+    computerScoreDisplay.textContent = `COMPUTER: ${computerScore}`;
+    playerChoice.textContent = "❔";
+    computerChoice.textContent = "❔";
+    endGameModal.style.display = "none";
+
+    choicesButtons.forEach((button) => {
+        button.disabled = false;
+        button.classList.remove("no-hover");
+    });
 }
 
 

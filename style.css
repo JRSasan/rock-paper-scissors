@@ -96,7 +96,7 @@ body {
     background-color: #83B4FF;
 }
 
-.noHover {
+.no-hover {
     pointer-events: none;
 }
 
