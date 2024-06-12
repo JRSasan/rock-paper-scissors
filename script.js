@@ -144,7 +144,7 @@ function declareWinner(playerScore, computerScore) {
     }
 
     roundResultDisplay.textContent = roundResult;
-    roundMessageDisplay.textContent = " ";
+    roundMessageDisplay.innerHTML = "<br/>";
 
     choicesButtons.forEach((button) => {
         button.disabled = true;
