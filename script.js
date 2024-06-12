@@ -12,6 +12,8 @@ const computerScoreDisplay = document.querySelector(".computer-score");
 const roundResultDisplay = document.querySelector(".round-result-display");
 const roundMessageDisplay = document.querySelector(".round-message-display");
 const choicesButtons = document.querySelectorAll(".choice-button");
+const endGameModal = document.querySelector(".end-game-modal");
+const gameResult = document.querySelector(".game-result");
 
 choicesButtons.forEach((buttons) => {
     buttons.addEventListener("click", playGame);
@@ -135,21 +137,22 @@ function updateGameMessage(playerScore, computerScore, roundResult, roundMessage
 
 
 function declareWinner(playerScore, computerScore) {
-    if(playerScore === computerScore) {
-        roundResult = "DRAW";
-    } else if (playerScore > computerScore) {
+    if (playerScore > computerScore) {
         roundResult = "PLAYER WINS!";
     } else if (playerScore < computerScore) {
         roundResult = "COMPUTER WINS!";
     }
 
-    roundResultDisplay.textContent = roundResult;
-    roundMessageDisplay.innerHTML = "<br/>";
+    gameResult.textContent = roundResult;
+    endGameModal.style.display = "flex";
+    
 
     choicesButtons.forEach((button) => {
         button.disabled = true;
         button.classList.add("noHover");
     });
+
+    
 }
 
 

@@ -17,6 +17,7 @@ body {
     text-align: center;
     background-color: #5A72A0;
     font-family: "Arcade";
+    user-select: none;
 }
 
 .game-name {
@@ -119,7 +120,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #5A72A0;
-    width: 200px;
+    width: 300px;
     position: fixed;
     z-index: 1;
     padding: 30px;
@@ -135,7 +136,7 @@ body {
 
 .reset-button {
     font-family: "Arcade";
-    font-size: 15px;
+    font-size: 20px;
     padding: 10px;
     border: none;
     border-radius: 10px;
