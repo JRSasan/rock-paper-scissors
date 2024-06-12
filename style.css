@@ -144,3 +144,17 @@ body {
     background-color: #1A2130;
 }
 
+.footer {
+    color: #FDFFE2;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.fa-github {
+    font-size: 15px;
+    color: #FDFFE2;
+    padding-left: 3px;
+}
+
