@@ -30,6 +30,7 @@ body {
 .game-message {
     padding: 30px;
     letter-spacing: 1px;
+    margin-bottom: 30px;
 }
 
 .round-result-display {
@@ -44,15 +45,19 @@ body {
 
 .game-info {
     display: flex;
-    justify-content: center;
-    text-align: center;
-    gap: 30px;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    justify-content: space-between;
+    max-width: 330px;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .game-info > h2 {
     align-self: center;
+}
+
+.player-info,
+.computer-info {
+    width: 110px;
 }
 
 .player-choice,
@@ -61,10 +66,16 @@ body {
     color: #FDFFE2;
 }
 
+.player-score,
+.computer-score {
+    font-size: 20px;
+}
+
 .choices-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-top: 50px;
 }
 
 .choice-button {
@@ -74,6 +85,8 @@ body {
     background-color: #1A2130;
     border: none;
     border-radius: 10px;
+    height: 100px;
+    width: 100px;
 }
 
 .choice-button:hover {
